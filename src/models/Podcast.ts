@@ -2,7 +2,6 @@ import { Document } from "mongoose";
 import MongoDbHelper from "../helpers/mongoHelper";
 
 export interface IPodcast {
-  ID?: number;
   Created?: string;
   UserID: string;
   Title: string;
@@ -10,7 +9,6 @@ export interface IPodcast {
   IsVisible?: boolean;
 }
 export class Podcast implements IPodcast {
-  ID: number = 0;
   Created: string = "";
   UserID: string = "";
   Title: string = "";

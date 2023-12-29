@@ -17,12 +17,12 @@ export class PodcastService implements CrudApiService<Podcast> {
 
   async get_all(queryString: SearchParams): Promise<Podcast[] | null> {
     // check mandatory field - PodcastID
-    if (queryString && !queryString.UserId) {
+    if (queryString && !queryString.UserID) {
       return null;
     }
     const fields = ["Title", "Description"];
-    
-    const items = await this.dbHelper.get_list<Podcast>(queryString , fields);
+
+    const items = await this.dbHelper.get_list<Podcast>(queryString, fields);
     return items;
   }
 

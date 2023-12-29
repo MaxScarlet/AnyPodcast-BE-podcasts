@@ -1,5 +1,5 @@
 export interface SearchParams {
-  UserId: string;
+  UserID: string;
   SearchValue?: string;
   // IsVisible: boolean;
 }
