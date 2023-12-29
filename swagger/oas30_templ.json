@@ -1,0 +1,360 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "ElementX-distr-srv_api_templ",
+    "description" : "Distributors service (1.0.0)",
+    "version" : "2023-10-01T00:00:00Z"
+  },
+  "servers" : [ {
+    "url" : "https://tjrvn4llzk.execute-api.il-central-1.amazonaws.com/{basePath}",
+    "variables" : {
+      "basePath" : {
+        "default" : "templ"
+      }
+    }
+  } ],
+  "paths" : {
+    "/distr/{id}" : {
+      "get" : {
+        "operationId" : "get",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "200 response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Distributor"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "Auth0" : [ ]
+        } ],
+        "x-amazon-apigateway-integration" : {
+          "httpMethod" : "POST",
+          "uri" : "arn:aws:apigateway:il-central-1:lambda:path/2015-03-31/functions/arn:aws:lambda:il-central-1:${account}:function:${lambda_name}/invocations",
+          "responses" : {
+            "default" : {
+              "statusCode" : "200"
+            }
+          },
+          "passthroughBehavior" : "when_no_match",
+          "contentHandling" : "CONVERT_TO_TEXT",
+          "type" : "aws_proxy"
+        }
+      },
+      "put" : {
+        "operationId" : "update",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "200 response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Empty"
+                }
+              }
+            }
+          }
+        },
+        "x-amazon-apigateway-integration" : {
+          "httpMethod" : "POST",
+          "uri" : "arn:aws:apigateway:il-central-1:lambda:path/2015-03-31/functions/arn:aws:lambda:il-central-1:${account}:function:${lambda_name}/invocations",
+          "responses" : {
+            "default" : {
+              "statusCode" : "200"
+            }
+          },
+          "passthroughBehavior" : "when_no_match",
+          "contentHandling" : "CONVERT_TO_TEXT",
+          "type" : "aws_proxy"
+        }
+      },
+      "delete" : {
+        "operationId" : "delete",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "200 response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Empty"
+                }
+              }
+            }
+          }
+        },
+        "x-amazon-apigateway-integration" : {
+          "httpMethod" : "POST",
+          "uri" : "arn:aws:apigateway:il-central-1:lambda:path/2015-03-31/functions/arn:aws:lambda:il-central-1:${account}:function:${lambda_name}/invocations",
+          "responses" : {
+            "default" : {
+              "statusCode" : "200"
+            }
+          },
+          "passthroughBehavior" : "when_no_match",
+          "contentHandling" : "CONVERT_TO_TEXT",
+          "type" : "aws_proxy"
+        }
+      }
+    },
+    "/distr" : {
+      "get" : {
+        "operationId" : "get_all",
+        "responses" : {
+          "200" : {
+            "description" : "200 response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/DistributorList"
+                }
+              }
+            }
+          }
+        },
+        "x-amazon-apigateway-integration" : {
+          "httpMethod" : "POST",
+          "uri" : "arn:aws:apigateway:il-central-1:lambda:path/2015-03-31/functions/arn:aws:lambda:il-central-1:${account}:function:${lambda_name}/invocations",
+          "responses" : {
+            "default" : {
+              "statusCode" : "200"
+            }
+          },
+          "passthroughBehavior" : "when_no_match",
+          "contentHandling" : "CONVERT_TO_TEXT",
+          "type" : "aws_proxy"
+        }
+      },
+      "post" : {
+        "operationId" : "create",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/DistributorNew"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "description" : "200 response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Empty"
+                }
+              }
+            }
+          }
+        },
+        "x-amazon-apigateway-integration" : {
+          "httpMethod" : "POST",
+          "uri" : "arn:aws:apigateway:il-central-1:lambda:path/2015-03-31/functions/arn:aws:lambda:il-central-1:${account}:function:${lambda_name}/invocations",
+          "responses" : {
+            "default" : {
+              "statusCode" : "200"
+            }
+          },
+          "passthroughBehavior" : "when_no_match",
+          "contentHandling" : "CONVERT_TO_TEXT",
+          "type" : "aws_proxy"
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "CustomSettings" : {
+        "title" : "CustomSettings",
+        "type" : "object",
+        "properties" : {
+          "Culture_Name" : {
+            "type" : "string"
+          },
+          "Dir" : {
+            "type" : "string"
+          },
+          "ShowTtls" : {
+            "type" : "boolean",
+            "default" : false
+          },
+          "Background_Color" : {
+            "type" : "string"
+          },
+          "Text_Color" : {
+            "type" : "string"
+          },
+          "Active_Color" : {
+            "type" : "string"
+          },
+          "ItemsLimit" : {
+            "type" : "string"
+          },
+          "AdTag" : {
+            "type" : "string"
+          },
+          "AdIntervalSec" : {
+            "type" : "string"
+          }
+        }
+      },
+      "DistributorList" : {
+        "title" : "DistributorList",
+        "type" : "array",
+        "items" : {
+          "$ref" : "#/components/schemas/Distributor"
+        }
+      },
+      "DistributorNew" : {
+        "type" : "object",
+        "properties" : {
+          "name" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Empty" : {
+        "title" : "Empty Schema",
+        "type" : "object"
+      },
+      "Distributor" : {
+        "title" : "Distributor",
+        "type" : "object",
+        "properties" : {
+          "ID" : {
+            "type" : "number",
+            "default" : 0
+          },
+          "Created" : {
+            "type" : "string"
+          },
+          "AccountID" : {
+            "type" : "string"
+          },
+          "CompanyName" : {
+            "type" : "string"
+          },
+          "ContactPerson" : {
+            "type" : "string"
+          },
+          "Email" : {
+            "type" : "string"
+          },
+          "BillingCountryID" : {
+            "type" : "number",
+            "default" : 0
+          },
+          "CurrencyCode" : {
+            "type" : "string"
+          },
+          "Tax" : {
+            "type" : "number",
+            "default" : 0
+          },
+          "IsVisible" : {
+            "type" : "boolean",
+            "default" : false
+          },
+          "IsDisabled" : {
+            "type" : "boolean",
+            "default" : false
+          },
+          "WebSite" : {
+            "type" : "string"
+          },
+          "CustomSettings" : {
+            "$ref" : "#/components/schemas/CustomSettings"
+          },
+          "Platforms" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Platform"
+            }
+          },
+          "MediaSources" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/MediaSource"
+            }
+          }
+        }
+      },
+      "MediaSource" : {
+        "title" : "MediaSource",
+        "type" : "object",
+        "properties" : {
+          "CustomName" : {
+            "type" : "string"
+          },
+          "MediaSourceID" : {
+            "type" : "number",
+            "default" : 0
+          },
+          "CustomBlob" : {
+            "type" : "string"
+          },
+          "Created" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Platform" : {
+        "title" : "Platform",
+        "type" : "object",
+        "properties" : {
+          "DeviceTypeID" : {
+            "type" : "number",
+            "default" : 0
+          },
+          "Status" : {
+            "type" : "number",
+            "default" : 0
+          },
+          "Created" : {
+            "type" : "string"
+          },
+          "LastModified" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "securitySchemes" : {
+      "Auth0" : {
+        "type" : "apiKey",
+        "name" : "Authorization",
+        "in" : "header",
+        "x-amazon-apigateway-authtype" : "custom"
+      }
+    }
+  }
+}
