@@ -9,7 +9,7 @@ export interface IPodcast {
   IsVisible?: boolean;
 }
 export class Podcast implements IPodcast {
-  Created: string = "";
+  Created?: string = "";
   UserID: string = "";
   Title: string = "";
   Description: string = "";

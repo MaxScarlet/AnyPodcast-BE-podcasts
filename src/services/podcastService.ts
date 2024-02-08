@@ -32,6 +32,7 @@ export class PodcastService implements CrudApiService<Podcast> {
 	}
 
 	async create(item: Podcast): Promise<Podcast> {
+		item.Created = new Date().toISOString();
 		const response = await this.dbHelper.create<Podcast>(item);
 		return response;
 	}
