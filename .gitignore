@@ -6,24 +6,9 @@ release
 export
 generated
 node_modules
+/swagger/oas30.json
 mock
-.DS_Store
 
 __tests__/**/coverage
 **/jest-report*.xml
 /junit.xml
-/eslint-report.json
-/_utils_/users_list.json
-
-# .terraform
-**/.terraform/*
-
-# .tfstate files
-*.tfstate
-*.tfstate.*
-
-# .tflock files
-.terraform.lock.hcl
-
-*.tfvars
-/terraform/.terraform
