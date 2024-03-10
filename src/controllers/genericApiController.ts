@@ -9,7 +9,6 @@ export class GenericApiController {
         try {
             const { httpMethod, path, body } = event;
 
-            //   switch (httpMethod) {}
 
 
         } catch (error) {
@@ -24,15 +23,6 @@ export class GenericApiController {
         "Access-Control-Allow-Headers": "*"
     }
 
-    // protected handleresponse(resp?: HttpResponse, err?: HttpError) {
-    //     if (!resp) {
-    //         return this.errorResponse(StatusCodes.IM_A_TEAPOT, 'Response is empty'); // UNPROCESSABLE_ENTITY
-    //     }
-    //     if (err) {
-    //         return this.errorResponse(err.statusCode, err.message);
-    //     }
-    //     return this.successResponse(resp.statusCode!, resp?.resp);
-    // }
     protected successResponse(data: any, statusCode?: StatusCodes) {
         return {
             statusCode: statusCode ?? StatusCodes.OK,

@@ -29,9 +29,6 @@ export class Podcast implements IPodcast {
 		const { ...objFiltered } = this;
 		return objFiltered;
 	}
-	processMediaSources() {
-		// some code
-	}
 }
 
 export const PodcastSchema = MongoDbHelper.generateSchemaFromInterface(new Podcast());

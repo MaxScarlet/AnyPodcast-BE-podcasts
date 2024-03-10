@@ -10,7 +10,6 @@ program
 program.parse(process.argv);
 const options = program.opts();
 
-// Shrinker core
 import * as fs from 'fs';
 
 const activePath: string[] = [];
@@ -34,8 +33,6 @@ const entry = (request: string, basePath = '', parentIsNpm = true): string => {
     try {
       realPath = require.resolve(request, { paths: [basePath] });
     } catch (e) {
-      // MODULE_NOT_FOUND
-      // console.error(request, e.code)
       return '';
     }
     if (realPath === request) return '';
@@ -90,7 +87,6 @@ const changeRef = (request: string, realPath: string): void => {
     else if (realPath.endsWith('.json')) target = `/node_modules/${pkgName}.json`;
   }
 
-  // node v10+
   fs.mkdirSync(path.dirname(distPath + target), { recursive: true });
   fs.writeFileSync(distPath + target, code);
 };

@@ -59,19 +59,12 @@ export default class MongoDbHelper<T extends Document> implements IDbHelper<T> {
     await this.model.findByIdAndRemove(id);
   }
 
-  // async search<T>(args: SearchParams): Promise<T[]> {
-  //   const criteria: Record<string, any> = this.convertToArgs(args);
-  //   const lst = await this.model.find(criteria);
-  //   return <T[]>lst;
-  // }
 
   static generateSchemaFromInterface = (interfaceObj: any): Schema => {
     const schemaFields: SchemaDefinition = {};
-    // const fieldNames = Reflect.ownKeys(interfaceObj.prototype);
     for (const key in interfaceObj) {
       const fieldType = typeof interfaceObj[key];
 
-      // Map the field types to Mongoose schema types
       switch (fieldType) {
         case "number":
           schemaFields[key] = { type: Number };

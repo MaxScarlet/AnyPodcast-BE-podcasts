@@ -21,7 +21,7 @@ export class CrudApiController<T> extends GenericApiController {
 					} else {
 						resp = await this.service.get_all(queryString);
 						if (resp == null) {
-							return this.errorResponse(StatusCodes.BAD_REQUEST); // handle validation error
+							return this.errorResponse(StatusCodes.BAD_REQUEST);
 						}
 					}
 					if (!resp) {
