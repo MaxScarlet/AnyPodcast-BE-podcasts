@@ -6,8 +6,10 @@ release
 export
 generated
 node_modules
-/swagger/oas30.json
 mock
+
+/swagger/oas30.json
+.env*
 
 __tests__/**/coverage
 **/jest-report*.xml
