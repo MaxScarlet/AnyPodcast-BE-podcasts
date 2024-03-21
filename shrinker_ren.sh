@@ -3,5 +3,5 @@
 mv dist dist_layer
 cd ./dist_layer
 mkdir -p nodejs
-sleep 0.5
+sleep 1
 mv node_modules nodejs

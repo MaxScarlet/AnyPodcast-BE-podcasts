@@ -1,8 +1,8 @@
-import { APIGatewayProxyEvent } from "aws-lambda";
 import { PodcastService as Service } from "./services/podcastService";
 import { CrudApiController } from "./controllers/crudApiController";
 import MongoDbHelper from "./helpers/mongoHelper";
 import { Podcast, PodcastDoc, PodcastSchema } from "./models/Podcast";
+import { APIGatewayProxyEvent } from "./controllers/genericApiController";
 
 const tableName = process.env.DB_TABLE!;
 

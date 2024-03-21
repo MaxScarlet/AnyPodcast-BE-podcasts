@@ -1,6 +1,5 @@
-import { APIGatewayProxyEvent } from "aws-lambda";
 import { StatusCodes } from "http-status-codes";
-import { GenericApiController } from "./genericApiController";
+import { APIGatewayProxyEvent, GenericApiController } from "./genericApiController";
 
 export class CrudApiController<T> extends GenericApiController {
 	constructor(private service: CrudApiService<T>) {
