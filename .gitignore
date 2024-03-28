@@ -8,7 +8,7 @@ generated
 node_modules
 mock
 
-/swagger/oas30.json
+/swagger/oas30_templ.json
 .env*
 
 __tests__/**/coverage
