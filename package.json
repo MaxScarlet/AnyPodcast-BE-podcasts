@@ -1,5 +1,7 @@
 {
 	"name": "srv-podcasts",
+	"author": "Maxim Kulik",
+	"auth_type": "Auth0",
 	"description": "Podcast Service for AnyPodcast",
 	"project": "AnyPodcast",
 	"version": "1.0.0",
